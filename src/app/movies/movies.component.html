@@ -1,0 +1,92 @@
+<div class="navbar bg-neutral text-neutral-content">
+  <div class="container mx-auto">
+    <a class="btn btn-ghost normal-case text-xl text-red-500"
+      >Angular Directives</a
+    >
+  </div>
+</div>
+
+<div class="container mx-auto">
+  <div class="flex gap-5">
+    <div class="w-2/3">
+      <h3 class="mt-3 text-xl">Movie List</h3>
+      <div class="grid grid-cols-3 gap-5 mt-3">
+        <div
+          class="card w-[250px] h-[350px] bg-base-100 shadow-xl"
+          *ngFor="let movie of movieList"
+        >
+          <figure>
+            <img
+              class="object-contain w-full max-h-[400px]"
+              [src]="movie.image"
+              [alt]="movie.name"
+            />
+          </figure>
+          <div class="p-3 flex justify-between items-center">
+            <div class="flex items-center gap-1">
+              <div class="font-medium text-cyan-800">{{ movie.name }}</div>
+              <mat-icon
+                appFavorite
+                [isFavoriteVal]="movie.isFavorite"
+                (click)="addFavorites(movie.id)"
+                class="text-red-500 cursor-pointer"
+              ></mat-icon>
+            </div>
+
+            <div class="font-semibold text-cyan-800">
+              Rating:
+              <span
+                class="badge badge-outline ml-2 font-semibold text-sky-600"
+                >{{ movie.rate }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2">
+      <h3 class="mt-3 text-xl">Add Product</h3>
+      <div class="border px-10 py-5 mt-3">
+        <form [formGroup]="form" class="w-full">
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Name</span>
+            </label>
+            <input
+              formControlName="name"
+              type="text"
+              placeholder="Name"
+              class="input input-bordered w-full"
+            />
+          </div>
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Rating</span>
+            </label>
+            <input
+              formControlName="rate"
+              type="number"
+              placeholder="Rating"
+              class="input input-bordered w-full"
+            />
+          </div>
+          <div class="form-control mt-2">
+            <input
+              type="file"
+              appImageUpload
+              accept="image/*"
+              formControlName="file"
+              (selectedImage)="setImage($event)"
+            />
+          </div>
+        </form>
+        <button
+          (click)="save()"
+          class="btn btn-outline btn-primary mt-10 w-full"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

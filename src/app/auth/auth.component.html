@@ -1,0 +1,39 @@
+<div class="bg-neutral text-gray-900 font-sans">
+  <div class="flex items-center h-screen w-full">
+    <div class="mx-auto w-96 bg-white rounded shadow-lg p-8 m-4">
+      <span class="block w-full text-xl uppercase font-bold mb-4 text-center"
+        >Login Page</span
+      >
+      <form [formGroup]="form" class="mb-4">
+        <div class="mb-4 w-full">
+          <div class="form-control w-full max-w-xs">
+            <label class="label">
+              <span class="label-text">Username</span>
+            </label>
+            <input
+              formControlName="username"
+              type="text"
+              placeholder="UserName"
+              class="input input-bordered w-full max-w-xs"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="mb-6 w-full">
+          <div class="form-control w-full max-w-xs">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              class="input input-bordered w-full max-w-xs"
+            />
+          </div>
+        </div>
+        <button (click)="authUser()" class="btn btn-accent">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

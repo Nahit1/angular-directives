@@ -8,9 +8,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ImageUploadDirective } from './directives/image-upload.directive';
 import { FavoriteDirective } from './directives/favorite.directive';
+import { AuthComponent } from './auth/auth.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
-  declarations: [AppComponent, ImageUploadDirective, FavoriteDirective],
+  declarations: [
+    AppComponent,
+    ImageUploadDirective,
+    FavoriteDirective,
+    AuthComponent,
+    MoviesComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
