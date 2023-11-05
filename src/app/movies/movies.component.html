@@ -10,7 +10,7 @@
   <div class="flex gap-5">
     <div class="w-2/3">
       <h3 class="mt-3 text-xl">Movie List</h3>
-      <div class="grid grid-cols-3 gap-5 mt-3">
+      <div *permission="'list'" class="grid grid-cols-3 gap-5 mt-3">
         <div
           class="card w-[250px] h-[350px] bg-base-100 shadow-xl"
           *ngFor="let movie of movieList"
@@ -23,7 +23,10 @@
             />
           </figure>
           <div class="p-3 flex justify-between items-center">
-            <div class="flex items-center gap-1">
+            <div
+              *permission="'add-favorite'; let role = role"
+              class="flex items-center gap-1"
+            >
               <div class="font-medium text-cyan-800">{{ movie.name }}</div>
               <mat-icon
                 appFavorite
@@ -31,6 +34,7 @@
                 (click)="addFavorites(movie.id)"
                 class="text-red-500 cursor-pointer"
               ></mat-icon>
+              <span>{{ role }}</span>
             </div>
 
             <div class="font-semibold text-cyan-800">
@@ -45,8 +49,12 @@
       </div>
     </div>
     <div class="w-1/2">
-      <h3 class="mt-3 text-xl">Add Product</h3>
-      <div class="border px-10 py-5 mt-3">
+      <h3 class="mt-3 text-xl">Add Movie</h3>
+      <div
+        *permission="'create'; let role = role"
+        class="border px-10 py-5 mt-3"
+      >
+        <span>{{ role }}</span>
         <form [formGroup]="form" class="w-full">
           <div class="form-control w-full">
             <label class="label">

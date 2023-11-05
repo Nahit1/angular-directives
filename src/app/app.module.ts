@@ -10,6 +10,7 @@ import { ImageUploadDirective } from './directives/image-upload.directive';
 import { FavoriteDirective } from './directives/favorite.directive';
 import { AuthComponent } from './auth/auth.component';
 import { MoviesComponent } from './movies/movies.component';
+import { PermissionDirective } from './directives/permission.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MoviesComponent } from './movies/movies.component';
     FavoriteDirective,
     AuthComponent,
     MoviesComponent,
+    PermissionDirective,
   ],
   imports: [
     BrowserModule,

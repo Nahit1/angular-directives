@@ -14,6 +14,7 @@ export interface MovieList {
   templateUrl: './movies.component.html',
 })
 export class MoviesComponent {
+  isShow = true;
   selectedFiles?: FileList;
   preview = '';
 
